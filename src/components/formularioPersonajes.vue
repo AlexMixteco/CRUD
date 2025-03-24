@@ -6,48 +6,38 @@
       </label>
       <input type="text" v-model="json[titulo]" />
     </div>
-    <button type="submit">
+    <button type="submit" >
       Insertar
+    </button>
+    <button type="submit" >
+      Actualizar
     </button>
   </form>
 </template>
 
 <script setup>
 
-import axios from 'axios';
+//import axios from 'axios';
 
-let json = {
+import { defineEmits } from 'vue';
+
+const props = defineProps(['labels','json']);
+
+const emit = defineEmits(['insertar'])
+
+/*let json = {
   Id: "",
   Nombre: "",
   Rol: "",
   Pelicula: "",
   Descripcion: "",
-};
+};*/
 
-const props = defineProps(['labels']);
+const Insertar=() => {
 
-const Insertar = async () => {
-console.log(json);
-  const options = {
-    method: 'POST',
-    url: "http://localhost:3000/api/insertarPersonajes",
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    data: json/* {
-      id:Id,
-      nombre:Nombre,
-      rol:Rol,
-      pelicula:Pelicula,
-      descripcion:Descripcion,
-    }, */
-  };
+emit('insertar', props.json)
 
-  try {
-    const response = await axios.request(options);
-    console.log(response.data);
-  } catch (error) {
-    console.error("Error", error);
-  }
-};
+ }
+
+
 </script>

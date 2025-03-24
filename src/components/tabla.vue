@@ -10,32 +10,32 @@
       <tbody>
         <tr v-for="inf in info"  style="border: 1px solid black">
           <td v-for="c in claves">{{inf [c]  }}</td>
-          <td ><button @click="Eliminar">Eliminar</button><button>Editar</button></td>
+          <td ><button @click="eliminar(inf.id)">Eliminar</button>
+               <button @click="editar(inf)">Editar</button></td>
         </tr>
       </tbody>
     </table>
   </template>
   
   <script setup>
+import { defineEmits } from 'vue';
+
+const emit = defineEmits(['eliminar','editar'])
+
+ import axios from 'axios';
+
   const props = defineProps(['encabezado', 'info','claves']);
 
-  const Eliminar = async () => {
+  const eliminar=(id) => {
 
-  const options = {
-    method: 'DELETE',
-    url: "http://localhost:3000/api/eliminarPersonaje/12",
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    data: json
+  emit('eliminar', id)
+
+   }
+
+
+  const editar = (inf) => {
+  emit('editar', inf); 
   };
 
-  try {
-    const response = await axios.request(options);
-    console.log(response.data);
-  } catch (error) {
-    console.error("Error", error);
-  }
-};
-  
+
   </script>
