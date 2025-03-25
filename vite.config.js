@@ -21,5 +21,8 @@ export default defineConfig({
   preview:{
     host:true,
     port:3000,
+    allowedHosts:[
+      "crud-lj4l.onrender.com"
+    ]
   },
 })
