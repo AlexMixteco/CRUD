@@ -9,9 +9,8 @@
     <button type="submit" >
       Insertar
     </button>
-    <button type="submit" >
-      Actualizar
-    </button>
+    
+    <button type="button" @click="actualizarpersonajes">Actualizar</button>
   </form>
 </template>
 
@@ -23,7 +22,7 @@ import { defineEmits } from 'vue';
 
 const props = defineProps(['labels','json']);
 
-const emit = defineEmits(['insertar'])
+const emit = defineEmits(['insertar','actualizarpersonajes'])
 
 /*let json = {
   Id: "",
@@ -39,5 +38,9 @@ emit('insertar', props.json)
 
  }
 
+ const actualizarpersonajes = () => {
+ emit('actualizarpersonajes', props.json, props.json.Id); 
+};
+  
 
 </script>

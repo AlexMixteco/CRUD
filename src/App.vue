@@ -17,7 +17,8 @@
   <formulario-personajes
   :labels='["Nombre","Rol","Pelicula","Descripcion"]'
   :json="formPersonajes"
-   @insertar="insertarPersonajes"/>
+   @insertar="insertarPersonajes"
+   @actualizarpersonajes="ActualizarPersonajes"/>
 
    <formulario-actores
   :labels='["Nombre","Edad","Nacionalidad","Premios"]'
@@ -187,6 +188,7 @@ console.log(json);
 
 const mostrarPersonaje = (inf) => {
 console.log(inf);
+formPersonajes.value.Id = inf.id;
 formPersonajes.value.Nombre = inf.nombre;
 formPersonajes.value.Rol = inf.rol;
 formPersonajes.value.Pelicula = inf.pelicula;
@@ -197,6 +199,7 @@ formPersonajes.value.Descripcion = inf.descripcion;
 
 const mostrarActor = (inf) => {
 console.log(inf);
+formActores.value.Id = inf.id;
 formActores.value.Nombre = inf.nombre;
 formActores.value.Edad = inf.edad;
 formActores.value.Nacionalidad = inf.nacionalidad;
@@ -205,10 +208,12 @@ formActores.value.Premios = inf.premios;
 
 };
 
-const ActualizarActores = async (json,id) => {
+const ActualizarActores = async (json, Id) => {
+  console.log("Actualizando actor con ID:", Id); 
+
   const options = {
     method: 'PUT', 
-    url: "http://localhost:3000/api/actualizarActores"+id,
+    url: `http://localhost:3000/api/actualizarActores/` +Id, 
     headers: {
       'Content-Type': 'application/json',
     },
@@ -219,7 +224,28 @@ const ActualizarActores = async (json,id) => {
     await axios.request(options);
     cambiar();
   } catch (error) {
-    console.error("Error", error);
+    console.error("Error al actualizar:", error);
   }
 };
+
+const ActualizarPersonajes = async (json, Id) => {
+  console.log("Actualizando personaje con ID:", Id); 
+
+  const options = {
+    method: 'PUT', 
+    url: `http://localhost:3000/api/actualizarPersonajes/` +Id, 
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    data: json,
+  };
+
+  try {
+    await axios.request(options);
+    cambiar();
+  } catch (error) {
+    console.error("Error al actualizar:", error);
+  }
+};
+
 </script>

@@ -9,7 +9,7 @@
       <button type="submit">
         Insertar
       </button>
-      <button @click="actualizar(props.json.Id)">Actualizar</button>
+      <button type="button" @click="actualizar">Actualizar</button>
     </form>
   </template>
   
@@ -38,10 +38,8 @@
    }
 
 
-  const actualizar = (id) => {
-  emit('actualizar', props.json,id); 
-  };
-  
+  const actualizar = () => {
+  emit('actualizar', props.json, props.json.Id); 
+};
   
   </script>
-  
