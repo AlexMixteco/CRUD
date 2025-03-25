@@ -61,7 +61,7 @@ async function cambiar() {
 const options1 = {
     
     method :'GET',
-    url:"http://localhost:3000/api/selectTablas/personajes",
+    url: "https://apis-4nl1.onrender.com/api/selectTablas/personajes",
     Headers:{
         'Content-Type':'application/json',
     },
@@ -70,7 +70,7 @@ const options1 = {
 const options2 = {
     
     method :'GET',
-    url:"http://localhost:3000/api/selectTablas/actores",
+    url: "https://apis-4nl1.onrender.com/api/selectTablas/actores",
     Headers:{
         'Content-Type':'application/json',
     },
@@ -97,7 +97,7 @@ const Eliminaractores = async (id) => {
    console.log(id);
   const options = {
     method: 'DELETE',
-    url: "http://localhost:3000/api/eliminarActores/"+id,
+    url: "https://apis-4nl1.onrender.com/api/eliminarActores/"+id,
     headers: {
       'Content-Type': 'application/json',
     },
@@ -119,7 +119,7 @@ const EliminarPersonajes = async (id) => {
    console.log(id);
   const options = {
     method: 'DELETE',
-    url: "http://localhost:3000/api/eliminarPersonajes/"+id,
+    url: "https://apis-4nl1.onrender.com/api/eliminarPersonajes/"+id,
     headers: {
       'Content-Type': 'application/json',
     },
@@ -144,7 +144,7 @@ const insertarPersonajes = async (json) => {
 console.log(json);
   const options = {
     method: 'POST',
-    url: "http://localhost:3000/api/insertarPersonajes",
+    url: "https://apis-4nl1.onrender.com/api/insertarPersonajes",
     headers: {
       'Content-Type': 'application/json',
     },
@@ -170,7 +170,7 @@ const insertarActores = async (json) => {
 console.log(json);
   const options = {
     method: 'POST',
-    url: "http://localhost:3000/api/insertarActores",
+    url: "https://apis-4nl1.onrender.com/api/insertarActores",
     headers: {
       'Content-Type': 'application/json',
     },
@@ -213,7 +213,7 @@ const ActualizarActores = async (json, Id) => {
 
   const options = {
     method: 'PUT', 
-    url: `http://localhost:3000/api/actualizarActores/` +Id, 
+    url: 'https://apis-4nl1.onrender.com/actualizarActores/' +Id,
     headers: {
       'Content-Type': 'application/json',
     },
@@ -233,7 +233,7 @@ const ActualizarPersonajes = async (json, Id) => {
 
   const options = {
     method: 'PUT', 
-    url: `http://localhost:3000/api/actualizarPersonajes/` +Id, 
+    url: 'https://apis-4nl1.onrender.com/api/actualizarPersonajes/' +Id, 
     headers: {
       'Content-Type': 'application/json',
     },
